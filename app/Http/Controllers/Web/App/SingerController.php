@@ -1,10 +1,10 @@
 <?php
 
-namespace  App\Http\Controllers\Web\Music;
+namespace  App\Http\Controllers\Web\App;
 
 use App\Http\Controllers\Controller;
 
-class RhythmController extends Controller
+class SingerController extends Controller
 {
     public function __construct()
     {
@@ -12,6 +12,6 @@ class RhythmController extends Controller
     }
     public function index()
     {
-        return view('music-app.rhythm');
+        return view('music-app.singer');
     }
 }

@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <music-list token_crsf="{{ @csrf_token() }}"></music-list>
+        <home-list token_crsf="{{ @csrf_token() }}"></home-list>
     </div>
 @endsection

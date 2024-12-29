@@ -3,19 +3,23 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Web\Music\ToneController;
-use App\Http\Controllers\Web\Music\ChordController;
-use App\Http\Controllers\Web\Music\MusicController;
-use App\Http\Controllers\Web\Music\RhythmController;
-use App\Http\Controllers\Web\Music\SingerController;
-use App\Http\Controllers\Web\Music\CreateMusicController;
-use App\Http\Controllers\Web\Music\ShowSingerMusicController;
-use App\Http\Controllers\Web\Music\ShowSingerMusicsController;
+use App\Http\Controllers\Web\App\ToneController;
+use App\Http\Controllers\Web\App\ChordController;
+use App\Http\Controllers\Web\App\MusicController;
+use App\Http\Controllers\Web\App\RhythmController;
+use App\Http\Controllers\Web\App\SingerController;
+use App\Http\Controllers\Web\Web\ShowMusicController;
+use App\Http\Controllers\Web\App\CreateMusicController;
+use App\Http\Controllers\Web\App\ShowSingerMusicController;
+use App\Http\Controllers\Web\App\ShowSingerMusicsController;
 
 
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/letra/{id}', [ShowMusicController::class, 'index']);
+
+
 Route::get('/acorde', [ChordController::class, 'index'])->middleware('auth')->name('acorde');
 Route::get('/musico', [SingerController::class, 'index'])->middleware('auth')->name('musico');
 Route::get('/editor', [CreateMusicController::class, 'index'])->middleware('auth')->name('editor');

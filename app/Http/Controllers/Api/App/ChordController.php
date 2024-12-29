@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Music;
+namespace App\Http\Controllers\Api\App;
 
 use App\Exceptions\Music\MusicException;
 use App\Models\Music\Chord;

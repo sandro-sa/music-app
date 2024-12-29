@@ -56,15 +56,22 @@ import RhythmUpdate from './components/music-app/RhythmUpdate.vue';
 app.component('rhythm-update', RhythmUpdate);
 
 import MusicCreate from './components/music-app/MusicCreate.vue';
-app.component('music-create', MusicCreate);
+app.component('music', MusicCreate);
 
-import MusicList from './components/music-app/MusicList.vue';
-app.component('music-list', MusicList);
+
 
 import ShowSingerMusics from './components/music-app/ShowSingerMusics.vue';
 app.component('show-singer-musics', ShowSingerMusics);
 
 import ShowSingerMusic from './components/music-app/ShowSingerMusic.vue';
 app.component('show-singer-music', ShowSingerMusic);
+
+
+/////////////////////////// WEB ////////////////////////////////////////
+import Home from './components/web/Home.vue';
+app.component('home-list', Home);
+
+import ShowMusic from './components/web/ShowMusic.vue';
+app.component('show-music', ShowMusic);
 
 app.mount('#app');

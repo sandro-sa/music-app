@@ -2,12 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Music\ToneController;
-use App\Http\Controllers\Api\Music\ChordController;
-use App\Http\Controllers\Api\Music\MusicController;
-use App\Http\Controllers\Api\Music\RhythmController;
-use App\Http\Controllers\Api\Music\SingerController;
-use App\Http\Controllers\Api\Music\ShowSingerMusicsController;
+use App\Http\Controllers\Api\App\ToneController;
+use App\Http\Controllers\Api\App\ChordController;
+use App\Http\Controllers\Api\App\MusicController;
+use App\Http\Controllers\Api\App\RhythmController;
+use App\Http\Controllers\Api\App\SingerController;
+use App\Http\Controllers\Api\App\ShowSingerMusicsController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

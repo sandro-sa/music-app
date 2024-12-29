@@ -88,7 +88,7 @@
 					</div>
 		
 					<div class="d-flex justify-content-end">
-						<button type="submit" class="btn btn-success mt-5" @click="submit()">Salvar</button>
+						<button type="button" class="btn btn-success mt-5" @click="submit()">Salvar</button>
 					</div>
 			</form>
 			</div>

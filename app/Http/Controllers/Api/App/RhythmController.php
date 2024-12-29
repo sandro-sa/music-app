@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Music;
+namespace App\Http\Controllers\Api\App;
 
 use App\Models\Music\Rhythm;
 use App\Http\Controllers\Controller;

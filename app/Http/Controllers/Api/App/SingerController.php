@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Music;
+namespace App\Http\Controllers\Api\App;
 
 use App\Models\Music\Singer;
 use App\Http\Controllers\Controller;
@@ -11,9 +11,17 @@ use App\Http\Resources\Api\Music\SingerResource;
 class SingerController extends Controller
 {
     public function index()
-    {
-        $singers = Singer::all();
+    { 
+        $singers = Singer::with('musics')->get();
+            
         return SingerResource::collection($singers);
+        dd( $singers);
+        try{
+           
+        }catch(\Exception $e){
+            throw new MusicException("Erro ao listar musicos.");
+        }
+        
     }
     public function store(SingerRequest $request)
     {

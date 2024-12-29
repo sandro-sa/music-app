@@ -2,8 +2,9 @@
 
 namespace App\Models\Music;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Music\Music;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Singer extends Model
 {

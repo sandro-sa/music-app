@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Api\Music;
+namespace App\Http\Controllers\Api\App;
 
 use App\Models\Music\Music;
 use App\Http\Controllers\Controller;
@@ -11,14 +11,14 @@ class MusicController extends Controller
 {
     public function index()
     {
-        $musics = Music::all();
-    
-        $musics->load(['singer','tone','rhythm']);
+        try{
+            $musics = Music::all();
+            $musics->load(['singer','tone','rhythm']);
+            return MusicResource::collection($musics);
 
-
-        
-
-        return MusicResource::collection($musics);
+        }catch(\Exception $e){
+            throw new MusicException('Erro ao listar musicas');
+        } 
     }
     public function store(MusicRequest $request)
     {
