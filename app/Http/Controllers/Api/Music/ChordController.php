@@ -12,7 +12,7 @@ class ChordController extends Controller
 {
     public function index()
     {
-        $chords = Chord::all();
+        $chords = Chord::orderBy('chord_name', 'asc')->get();
         return ChordResource::collection($chords);
     }
     public function store(Request $request)

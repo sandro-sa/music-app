@@ -19,6 +19,7 @@ class MusicRequest extends FormRequest
             'introduction' => 'nullable',
             'music_name' => 'required',
             'music' => 'required',
+            'chords' => 'required',
         ];
     }
 
@@ -30,6 +31,7 @@ class MusicRequest extends FormRequest
             'singer_id.required' => 'Musico é obrigatório.',
             'rhythm_id.required' => 'Ritmo é obrigatório.',
             'tone_id.required' => 'Tom é obrigatório.',
+            'chords.required' => 'Notas não incluidas.',
         ];
     }
 }

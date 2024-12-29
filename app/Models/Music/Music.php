@@ -15,6 +15,10 @@ class Music extends Model
 
     protected $guarded = ['id'];
 
+    protected $cats = [
+        'chords' => "array",
+    ];
+
     public function tone(){
         return $this->belongsTo(Tone::class);
     }

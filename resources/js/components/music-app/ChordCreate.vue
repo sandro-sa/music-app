@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+    
                 <h2 class="text-center">Posição do acorde</h2>
 
                 <form action="">
@@ -62,6 +63,7 @@
 
     <template v-if="chords">
         <h1 class="text-center mt-5">Lista de acordes</h1>
+        
         <div class="list containe d-flex justify-content-center">
             <div  v-for=" chord in chords" :key="chord.id" >
                 <div class="list-chord ">      
@@ -109,7 +111,7 @@
 </template>
 
 <script setup>
-import { reactive, onMounted, ref } from 'vue';
+import { reactive, onMounted, ref, getCurrentInstance } from 'vue';
 import { useChord } from '@/store/chord.js';
 import{ catchDefault } from '@/utils/messagesCatch';
 import urls from '@/utils/urls';
@@ -120,13 +122,22 @@ const alert = ref(false);
 const msg = ref(false);
 const chordStore = useChord();
 const page = urls.api+'chord';
-
+const { proxy } = getCurrentInstance();
 const config = {
    headers: {
        'Content-Type': 'multipart/form-data',
        'Accept': 'application/json',
    }
 };
+
+const messageSweet = ((text, type ) => {
+	proxy.$swal.fire({
+		title: text ,
+		icon: type,
+
+    });
+});
+
 const messages = ((text, type ) => {
     msg.value = text;
     alert.value = type;
@@ -164,8 +175,7 @@ const submit = (() => {
     return chordStore.insert(page, fields, config)
     .then((response) => {
         if(response.request.status === 200 || response.request.status === 201 ){
-            console.log(response)
-            messages( 'Novo acorde inserido','alert-success');
+            messageSweet( 'Novo acorde inserido','success');
             execute();
         }
     })
@@ -181,11 +191,11 @@ const deleteChord = ((chord, index) => {
         chord_name : [chord.chord_name],
         key: index,
     }
-    console.log(fields)
+
     return chordStore.delete(page+"/"+fields.id, fields, config)
     .then((response) => {
         if(response.request.status === 200 || response.request.status === 201 ){
-            messages( 'Acorde apagado','alert-success');
+            messageSweet( 'Acorde apagado','success');
             execute();
         }
     })
@@ -300,5 +310,11 @@ onMounted(() => execute() );
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+}
+input{
+    background-color: white;
+}
+input:focus{
+    background-color: rgb(245, 255, 236);
 }
 </style>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('music_name')->unique();
             $table->string('introduction')->nullable();
             $table->text('music')->nullable();
+            $table->json('chords');
             $table->timestamps();
         });
     }

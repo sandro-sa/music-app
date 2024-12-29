@@ -3,7 +3,6 @@ namespace App\Http\Controllers\Api\Music;
 
 use App\Models\Music\Music;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
 use App\Exceptions\Music\MusicException;
 use App\Http\Requests\Api\Music\MusicRequest;
 use App\Http\Resources\Api\Music\MusicResource;
@@ -13,12 +12,19 @@ class MusicController extends Controller
     public function index()
     {
         $musics = Music::all();
+    
         $musics->load(['singer','tone','rhythm']);
+
+
+        
+
         return MusicResource::collection($musics);
     }
     public function store(MusicRequest $request)
     {
         $fields = $request->validated();
+
+        $fields['chords'] = json_encode($fields['chords']);
         $music = Music::where('music_name', $fields['music_name'])->first();
         if ($music instanceof Music) {
             throw new MusicException('Musica já foi cadastrado.');
