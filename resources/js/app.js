@@ -10,6 +10,8 @@ const app = createApp({});
 app.use(pinia);
 app.use(VueSweetalert2);
 
+
+/////////////////////////////// DEFAULT ////////////////////////////////////////
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 
@@ -25,6 +27,10 @@ app.component('alert-card', AlertCard);
 import AlertLoading from './components/default/alerts/AlertLoading.vue';
 app.component('alert-loading', AlertLoading);
 
+import ChordsListWrap from './components/default/chord/ChordsListWrap.vue';
+app.component('chords-list-wrap', ChordsListWrap);
+
+////////////////////////////// APP /////////////////////////////////////////////
 import ChordCreate from './components/music-app/ChordCreate.vue';
 app.component('chord-create', ChordCreate);
 
@@ -56,7 +62,7 @@ import RhythmUpdate from './components/music-app/RhythmUpdate.vue';
 app.component('rhythm-update', RhythmUpdate);
 
 import MusicCreate from './components/music-app/MusicCreate.vue';
-app.component('music', MusicCreate);
+app.component('music-create', MusicCreate);
 
 
 

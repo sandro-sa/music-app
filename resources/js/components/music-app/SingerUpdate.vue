@@ -73,7 +73,6 @@ const submit = (() => {
         }
     })
     .catch((e) => {
-        console.log(e)
         returnCath(e);
     })
     .finally(() => emits('excuteLoadind'));

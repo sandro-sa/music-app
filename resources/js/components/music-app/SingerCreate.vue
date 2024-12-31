@@ -55,7 +55,6 @@ const submit = (() => {
         singer_name: singer_name.value ? capitalizeWords(singer_name.value) : singer_name.value,
         singer_type: singer_type.value
     }
-    console.log(fields)
     return singerStore.insert(page, fields, config)
     .then((response) => {
         if(response.request.status === 200 || response.request.status === 201 ){

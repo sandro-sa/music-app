@@ -81,7 +81,6 @@ const execute = (async () => {
     .then( response => {
         rhythms.value = response.data.data;
         update.value = false;
-        console.log(update.value)
     })
     .catch((e) => {
         returnCath(e);

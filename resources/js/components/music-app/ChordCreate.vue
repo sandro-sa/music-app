@@ -23,90 +23,47 @@
                 </form>
             </div>
             
-            <div class="col-md-6">
-                <h2 class="text-center">Acorde</h2>
-                <div class="row d-flex">
-                    <div class="chord d-flex justify-content-center" >
-                        <div class="chord-content">
-                            <p class="m-0 p-0 text-center">{{ state.title }}</p>
-                            <div class="line l1">
-                                <span class="field2" v-for="(filed, index) in state.lines[0]" :key="'l1-' + index">
-                                    <span v-if="index == 'line_1_position_1'" class="field2">{{ filed }}</span><span v-else class="field">{{ filed }}</span>
-                                </span>
-                            </div>
-                            <div class="line l2">
-                                <span class="field2" v-for="(filed, index) in state.lines[1]" :key="'l2-' + index">
-                                    <span v-if="index == 'line_2_position_1'" class="field2">{{ filed }}</span><span v-else class="field">{{ filed }}</span>
-                                </span>
-                            </div>
-                            <div class="line l3">
-                                <span class="field2" v-for="(filed, index) in state.lines[2]" :key="'l3-' + index">
-                                    <span v-if="index == 'line_3_position_1'" class="field2">{{ filed }}</span><span v-else class="field">{{ filed }}</span>
-                                </span>
-                            </div>
-                            <div class="line l4">
-                                <span class="field2" v-for="(filed, index) in state.lines[3]" :key="'l4-' + index">
-                                    <span v-if="index == 'line_4_position_1'" class="field2">{{ filed }}</span><span v-else class="field">{{ filed }}</span>
-                                </span>
-                            </div>
-                            <div class="line l5">
-                                <span class="field2" v-for="(filed, index) in state.lines[4]" :key="'l5-' + index">
-                                    <span v-if="index == 'line_5_position_1'" class="field2">{{ filed }}</span><span v-else class="field">{{ filed }}</span>
-                                </span>
-                            </div>
-                        </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+               
+                <div class="chord-content m-0 p-0">
+                    <h5 class="text-center m-0 p-0 ps-3 "><b>Previa</b></h5>
+                    <p class="m-0 p-0 text-center ps-3"><b>{{ state.title }}</b></p>
+                    <div class="line l1">
+                        <span class="note2" v-for="(filed, index) in state.lines[0]" :key="'l1-' + index">
+                            <span v-if="index == 'line_1_position_1'" class="note2">{{ filed }}</span><span v-else class="note">{{ filed }}</span>
+                        </span>
+                    </div>
+                    <div class="line l2">
+                        <span class="note2" v-for="(filed, index) in state.lines[1]" :key="'l2-' + index">
+                            <span v-if="index == 'line_2_position_1'" class="note2">{{ filed }}</span><span v-else class="note">{{ filed }}</span>
+                        </span>
+                    </div>
+                    <div class="line l3">
+                        <span class="note2" v-for="(filed, index) in state.lines[2]" :key="'l3-' + index">
+                            <span v-if="index == 'line_3_position_1'" class="note2">{{ filed }}</span><span v-else class="note">{{ filed }}</span>
+                        </span>
+                    </div>
+                    <div class="line l4">
+                        <span class="note2" v-for="(filed, index) in state.lines[3]" :key="'l4-' + index">
+                            <span v-if="index == 'line_4_position_1'" class="note2">{{ filed }}</span><span v-else class="note">{{ filed }}</span>
+                        </span>
+                    </div>
+                    <div class="line l5">
+                        <span class="note2" v-for="(filed, index) in state.lines[4]" :key="'l5-' + index">
+                            <span v-if="index == 'line_5_position_1'" class="note2">{{ filed }}</span><span v-else class="note">{{ filed }}</span>
+                        </span>
                     </div>
                 </div>
+            
             </div>
         </div>
     </div>
 
     <template v-if="chords">
         <h1 class="text-center mt-5">Lista de acordes</h1>
-        
-        <div class="list containe d-flex justify-content-center">
-            <div  v-for=" chord in chords" :key="chord.id" >
-                <div class="list-chord ">      
-                    <span v-for="(position , index) in  convertForArray(chord.chord_positions)" :key="index">
-                        <div class="list-chord-content mt-0">
-                        <div class="list-line l1 d-flex justify-content-end me-4">
-                            <p class="m-0 p-0 ">{{ chord.chord_name}}</p>
-                        </div>
-                        <div class="list-line l1">
-                            <span class="list-field2" v-for="(filed, index) in position[0]" :key="'l1-' + index">
-                               
-                                <span v-if="index == 'line_1_position_1'" class="list-field2">{{ filed }}</span><span v-else class="list-field">{{ filed }}</span>
-                            </span>
-                        </div>
-                        <div class="list-line l2">
-                            <span class="list-field2"  v-for="(filed, index) in position[1]"  :key="'l2-' + index">
-                                <span v-if="index == 'line_2_position_1'"class="list-field2">{{ filed }}</span><span v-else class="list-field">{{ filed }}</span>
-                            </span>
-                        </div>
-                        <div class="list-line l3">
-                            <span class="list-field2" v-for="(filed, index) in position[2]"  :key="'l3-' + index">
-                                <span v-if="index == 'line_3_position_1'" class="list-field2">{{ filed }}</span><span v-else class="list-field">{{ filed }}</span>
-                            </span>
-                        </div>
-                        <div class="list-line l4">
-                            <span class="list-field2"  v-for="(filed, index) in position[3]" :key="'l4-' + index">
-                                <span v-if="index == 'line_4_position_1'" class="list-field2">{{ filed }}</span><span v-else class="list-field">{{ filed }}</span>
-                            </span>
-                        </div>
-                        <div class="list-line l5">
-                            <span class="list-field2"  v-for="(filed, index) in position[4]"  :key="'l5-' + index">
-                                <span v-if="index == 'line_5_position_1'" class="list-field2">{{ filed}}</span><span v-else class="list-field">{{ filed,0 }}</span>
-                            </span>
-                        </div>
+    
+        <chords-list-wrap :token_crsf="token_crsf" :chords="chords" :delete="true" @deleteSuccess="deleteChord"></chords-list-wrap>
 
-                        <div class="list-line l5 d-flex justify-content-end me-1">
-                            <button class="btn" @click="deleteChord(chord,index)"><i class="bi bi-trash" style="color: red;" ></i></button>
-                        </div>
-                    </div>
-                    </span>
-                </div>
-            </div>
-        </div>
     </template>
 </template>
 
@@ -152,10 +109,7 @@ const resetMessages = (( ) => {
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
-const convertForArray = ((json) => {
-    let parsedArray = JSON.parse(json);
-    return parsedArray
-});
+
 const state = reactive({
   title: '',
   lines: [
@@ -166,6 +120,7 @@ const state = reactive({
     { line_5_position_1: '', line_5_position_2: '', line_5_position_3: '', line_5_position_4: '', line_5_position_5: '' }
   ]
 });
+
 const submit = (() => {
    const fields = {
         _method:'POST',
@@ -184,26 +139,12 @@ const submit = (() => {
     })
     .finally(() => isLoading.value = false);
 });
-const deleteChord = ((chord, index) => {
-   const fields = {
-        _method:'Delete',
-        id : chord.id,
-        chord_name : [chord.chord_name],
-        key: index,
-    }
 
-    return chordStore.delete(page+"/"+fields.id, fields, config)
-    .then((response) => {
-        if(response.request.status === 200 || response.request.status === 201 ){
-            messageSweet( 'Acorde apagado','success');
-            execute();
-        }
-    })
-    .catch((e) => {
-        returnCath(e);
-    })
-    .finally(() => isLoading.value = false);
+const deleteChord = (() => {
+    messageSweet( 'Acorde apagado','success');
+    execute();
 });
+
 const execute = (async () => {
 
     isLoading.value = true;
@@ -216,6 +157,7 @@ const execute = (async () => {
     })
     .finally(() => isLoading.value = false);
 });
+
 const returnCath = ((e) => {
 	const retornCatch = catchDefault(e);
 	messages(retornCatch[0],retornCatch[1])
@@ -232,12 +174,10 @@ onMounted(() => execute() );
     margin: 10px 10px;
     font-family: monospace;
 }
-.line {
-    display: flex;
-}
-.field {
+
+.note {
     width: 1.3em;
-    height: 2em;
+    height: 1.5em;
     font-weight: bold;
     font-family: sans-serif;
     font-size: larger;
@@ -248,7 +188,7 @@ onMounted(() => execute() );
     position: relative; /* Necessário para o posicionamento da line */
     overflow: hidden; /* Garante que a line não ultrapasse as extremidades */
 }
-.field::before {
+.note::before {
     content: "";
     position: absolute;
     top: 0; /* Começa a line no topo da célula */
@@ -258,59 +198,16 @@ onMounted(() => execute() );
     background-color: #289c0b; /* Cor da line */
     transform: translateX(-50%); /* Ajusta o centro exato da line */
 }
-.field2 {
-    width: 1em;
-    height: 2em;
+.note2 {
+    width: 1.0em;
+    height: 1.5em;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+    margin: 0px;
+    padding: 0px;
 }
-.list{
-    display: flex;
-    flex-wrap: wrap;
-}
-.list-chord{
-    display: flex;
-    flex-wrap: wrap;
-}
-.list-chord-content {
-    margin: 10px 10px;
-    margin-left: 10px;
-    font-family: monospace;
-}
-.list-line {
-    display: flex;
-}
-.list-field {
-    width: 1.3em;
-    height: 2em;
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: larger;
-    border-top: #289c0b 1px solid;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    position: relative;
-    overflow: hidden;
-}
-.list-field::before {
-    content: "";
-    position: absolute;
-    top: 0; 
-    bottom: 0; 
-    left: 50%; 
-    width: 1px; 
-    background-color: #289c0b; 
-    transform: translateX(-50%); 
-}
-.list-field2 {
-    width: 1em;
-    height: 2em;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-}
+
 input{
     background-color: white;
 }

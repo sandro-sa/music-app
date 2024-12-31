@@ -56,7 +56,6 @@ const submit = (() => {
         rhythm: rhythm.value ? capitalizeWords(rhythm.value) : rhythm.value,
         time: time.value
     }
-    console.log(fields)
     return rhythmStore.insert(page, fields, config)
     .then((response) => {
         if(response.request.status === 200 || response.request.status === 201 ){

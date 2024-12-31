@@ -2,5 +2,5 @@
 
 @section('content')
 @csrf
-    <show-music token_crsf="{{ @csrf_token() }}" :music="{{$music}}"></show-music>
+    <show-music token_crsf="{{ @csrf_token() }}" :music="{{$music}}" :chords="{{$chords}}"></show-music>
 @endsection

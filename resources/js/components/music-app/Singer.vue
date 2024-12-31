@@ -3,7 +3,7 @@
     <div class="container">
         <singer-update v-if="update" :editSinger="editSinger" :token_crsf="token_crsf" @sendMessageDad="messages"  @excuteLoadind="isLoading = !isLoading" @execute="execute"></singer-update>
         <singer-create v-else :token_crsf="token_crsf" @sendMessageDad="messages"  @excuteLoadind="isLoading = !isLoading" @execute="execute"></singer-create>
-        <div class="row">
+        <div v-if="singers" class="row">
             <div class="col">
                 <h2 class="text-start mt-3">Músicos/Grupos</h2>
             <table class="table table-bordered table-info table-hover">

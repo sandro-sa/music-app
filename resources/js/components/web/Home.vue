@@ -2,21 +2,17 @@
 	<alert-loading :msg="msg" :isLoading="isLoading" :alert="alert"></alert-loading>
 	<div class="container">
 		<div class="d-flex flex-wrap">
-            <template v-for="singer in singers" :key="singer.id">
-
+      		<template v-for="singer in singers" :key="singer.id">
 				<div class="dropdown m-1">
-					<a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						{{ singer.singer_name }}
-					</a>
+					<button class="btn btn-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<i v-if="singer.musics" class="bi bi-music-note-list me-2"></i> {{ singer.singer_name }} 
+					</button>
 					<ul class="dropdown-menu" v-for="music in singer.musics" :key="singer.id">
 						<li><a class="dropdown-item" :href="pageMusic+music.id">{{ music.music_name }}</a></li>
 					</ul>
 				</div>
-
 			</template>
-            	
-       		</div>
-   		
+		</div>
 	</div>
 </template>
   
@@ -57,7 +53,6 @@ const execute = (async () => {
     isLoading.value = true;
     return await singerStore.get(page, config)
     .then( response => {
-		console.log(response.data.data)
         singers.value = response.data.data;
 
     })
@@ -68,7 +63,6 @@ const execute = (async () => {
 });
 
 const returnCath = ((e) => {
-	console.log(e)
 	const retornCatch = catchDefault(e);
 	messages(retornCatch[0],retornCatch[1])
 });
@@ -85,9 +79,14 @@ onMounted(() => {
   input, select{
 	background-color: white;
   }
-  .dropdown-toggle{
+  .btn{
     width: 200px;
-    background-color: rgb(71, 137, 194);
+    background-color: #0d6efd;
+    color: white;
+  }
+  .btn:hover{
+    width: 200px;
+    background-color: #0e5bce;
     color: white;
   }
   .dropdown-menu{

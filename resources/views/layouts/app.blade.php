@@ -65,15 +65,14 @@
 						
 				  <div class="d-flex ">
 					  <div>
-						  <form  action="{{ route('logout') }}" method="POST">
-							  @csrf
-							  <button class="btn btn-danger me-2" type="submit">Cadastre-se</button>
-						  </form>
+						
+						<a href="{{ route('register') }}" class="btn btn-danger me-2" type="submit">Cadastre-se</a>
+						 
 					  </div>
 						  
 					  <div>
 							  
-						<a href="http://localhost:8000/login" class="btn btn-danger" type="submit">Login</a>
+						<a href="{{ route('login') }}" class="btn btn-danger" type="submit">Login</a>
 						  
 					  </div>
 						  

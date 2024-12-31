@@ -11,13 +11,10 @@ use App\Http\Resources\Api\Music\SingerResource;
 class SingerController extends Controller
 {
     public function index()
-    { 
-        $singers = Singer::with('musics')->get();
-            
-        return SingerResource::collection($singers);
-        dd( $singers);
+    {
         try{
-           
+            $singers = Singer::with('musics')->get();
+            return SingerResource::collection($singers);
         }catch(\Exception $e){
             throw new MusicException("Erro ao listar musicos.");
         }
